@@ -39,6 +39,7 @@ Generate an application key:
 
 ```bash
 php artisan key:generate
+php artisan jwt:secret
 ```
 
 ### 4. Run Migrations and Seeders
