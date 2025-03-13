@@ -30,7 +30,15 @@ class StripeController extends Controller
 
     public function success(Request $request)
     {
-        return response()->json(['message' => 'Payment successful!']);
+        $courseId = $request->input('course_id');
+
+        Subscription::create([
+            'user_id' => auth()->id(),
+            'course_id' => $courseId,
+            'status' => 'active',
+        ]);
+
+        return response()->json(['message' => 'Subscription successful!']);
     }
 
     public function cancel()
